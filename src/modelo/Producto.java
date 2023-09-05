@@ -2,7 +2,7 @@ package modelo;
 
 public interface Producto 
 {	
-	double getPrecio();
+	int getPrecio();
 	String getNombre();
 	String generarTextoFactura();
 }

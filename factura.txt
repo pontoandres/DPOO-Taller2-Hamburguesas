@@ -1,13 +1,14 @@
 
 ----- FACTURA -----
-Numero Pedido: 1ponto
-hkghkjgjkhghjkgkjhgkjh
+Numero Pedido: 1
+asdasdasdasdasd
+opkpoksd
 ----- Items Pedido ----- 
-combo corral queso......2450.0
+combo todoterreno......2583.0000000000005
 
 ----- Precio Neto ----- 
-17450
+2583
 ----- Precio IVA ----- 
-3315
+490
 ----- Precio Total ----- 
-20765
+3073

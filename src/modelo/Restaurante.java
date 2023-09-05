@@ -119,14 +119,14 @@ public class Restaurante {
 			String[] lista;
 			String nombre;
 			String cambio;
-			double descuento;			
+			int descuento;			
 			
 			while((line = reader.readLine()) != null) {
 				lista = line.split(";");
 				nombre = lista[0];
 				cambio = lista[1];
 				cambio = cambio.replace("%","");
-				descuento = Double.parseDouble(cambio)/100;
+				descuento = Integer.parseInt(cambio);
 				
 				//String[] items = {lista[0], lista[1], lista[2]};
 				

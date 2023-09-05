@@ -25,7 +25,7 @@ public class ProductoAjustado implements Producto {
 	}
 	
 	@Override
-	public double getPrecio() {
+	public int getPrecio() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

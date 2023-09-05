@@ -14,7 +14,7 @@ public class ProductoMenu implements Producto{
 	}
 
 	@Override
-	public double getPrecio() {
+	public int getPrecio() {
 		// TODO Auto-generated method stub
 		return precioBase;
 	}

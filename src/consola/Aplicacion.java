@@ -122,25 +122,25 @@ public class Aplicacion {
 				int opcion = Integer.parseInt(input("Por favor digite el numero del Combo que desea agregar a su pedido: "));
 				
 				if (opcion == 1) {
-					Combo c = new Combo("combo corral", 0.1);
+					Combo c = new Combo("combo corral", 10);
 					Pedido pEnCurso = restaurante.getPedidoEnCurso();
 					pEnCurso.agregarProducto(c);
 					System.out.println("El combo se ha agregado exitosamente.");
 				} 
 				else if(opcion == 2){
-					Combo c = new Combo("combo corral queso", 0.1);
+					Combo c = new Combo("combo corral queso", 10);
 					Pedido pEnCurso = restaurante.getPedidoEnCurso();
 					pEnCurso.agregarProducto(c);
 					System.out.println("El combo se ha agregado exitosamente.");
 				}
 				else if(opcion == 3){
-					Combo c = new Combo("combo todoterreno", 0.07);
+					Combo c = new Combo("combo todoterreno", 7);
 					Pedido pEnCurso = restaurante.getPedidoEnCurso();
 					pEnCurso.agregarProducto(c);
 					System.out.println("El combo se ha agregado exitosamente.");
 				}
 				else if(opcion == 4){
-					Combo c = new Combo("combo especial", 0.07);
+					Combo c = new Combo("combo especial", 7);
 					Pedido pEnCurso = restaurante.getPedidoEnCurso();
 					pEnCurso.agregarProducto(c);
 					System.out.println("El combo se ha agregado exitosamente.");
