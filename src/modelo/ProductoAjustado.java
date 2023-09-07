@@ -16,6 +16,7 @@ public class ProductoAjustado implements Producto {
 	 */
 	public ProductoAjustado(ProductoMenu pBase) {
 		base = pBase;
+		calorias = pBase.getCalorias();
 	}
 	
 	public void agregarIngrediente(Ingrediente ingredient) {
@@ -27,8 +28,15 @@ public class ProductoAjustado implements Producto {
 	
 	@Override
 	public int getPrecio() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		int costoAdicional = 0;
+		
+		for(Ingrediente ing : agregados) {
+			costoAdicional += ing.getCostoAdicional();
+		}
+		
+		
+		return base.getPrecio() + costoAdicional;
 	}
 
 	@Override
@@ -39,14 +47,31 @@ public class ProductoAjustado implements Producto {
 
 	@Override
 	public String generarTextoFactura() {
-		// TODO Auto-generated method stub
-		return null;
+		String add = "";
+		String elim = "";
+		for(Ingrediente ing : agregados) {
+			add += ing.getNombre();
+		}
+		for(Ingrediente ing : eliminados) {
+			elim += ing.getNombre();
+		}
+		
+		return base.getNombre() + "....." + getPrecio() + "\nAddiciones: " + add + "\nEliminacion: " + elim + "\nCalorias: " + getCalorias();
 	}
 
 	@Override
 	public int getCalorias() {
-		// TODO Auto-generated method stub
-		return calorias;
+		
+		int caloriasMas = 0;
+		int caloriasMenos = 0;
+		
+		for(Ingrediente ing : agregados) {
+			caloriasMas += ing.getCalorias();
+		}
+		for(Ingrediente ing : eliminados) {
+			caloriasMenos += ing.getCalorias();
+		}
+		return (calorias + caloriasMas - caloriasMenos);
 	}
 
 }

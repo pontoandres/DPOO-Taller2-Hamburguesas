@@ -62,14 +62,18 @@ public class Pedido {
 	}
 	public String generarTextoFactura() {
 		
-		String stringItemsPrecio = null;
+		String stringItemsPrecio = "";
+		int caloriasTotales = 0;
+		
 		for (Producto item : itemsPedido) {
-			stringItemsPrecio += item.getNombre() + "......" + item.getPrecio() + "\n";
+			stringItemsPrecio += item.generarTextoFactura() + "\n";
+			caloriasTotales += item.getCalorias();
 			
 		}
 		
 		String texto = "Nombre: " + nombreCliente + "\n" + "Direccion: " + direccionCliente 
-				+ "\n----- Items Pedido ----- \n" + stringItemsPrecio 
+				+ "\n----- Items Pedido ----- \n" + stringItemsPrecio
+				+ "\n----- Calorias Totales ----- \n" + caloriasTotales
 				+ "\n----- Precio Neto ----- \n" + getPrecioNetoPedido()
 				+ "\n----- Precio IVA ----- \n" + getPrecioIVAPedido()
 				+ "\n----- Precio Total ----- \n" + getPrecioTotalPedido();

@@ -126,7 +126,7 @@ public class Aplicacion {
 			System.out.println("\n------ Tipos de Productos ------\n");
 			System.out.println("1. Combo\n"
 					+ "2. Producto del Menu Base\n"
-					+ "3.Bebida"
+					+ "3.Bebida\n"
 					+ "4. Producto Ajustado (Productos del menu base al que se les ha agregado/ eliminado ingredientes\n");
 			
 			int tipo = Integer.parseInt(input("Por favor digite el numero del tipo de Producto que desea agreagar a su pedido: "));
@@ -650,7 +650,7 @@ public class Aplicacion {
 			if(base.getNombre().equals(nombre)) {
 				Pedido pEnCurso = restaurante.getPedidoEnCurso();
 				pEnCurso.agregarProducto(base);
-				System.out.println("El combo se ha agregado exitosamente.");
+				System.out.println("\nEl producto se ha agregado exitosamente.");
 			}
 		}
 	}
@@ -663,7 +663,7 @@ public class Aplicacion {
 			if(bebida.getNombre().equals(nombre)) {
 				Pedido pEnCurso = restaurante.getPedidoEnCurso();
 				pEnCurso.agregarProducto(bebida);
-				System.out.println("La bebida se ha agregado exitosamente.");
+				System.out.println("\nLa bebida se ha agregado exitosamente.");
 			}
 		}
 	}
@@ -680,7 +680,7 @@ public class Aplicacion {
 					prA.agregarIngrediente(ing);
 					Pedido pEnCurso = restaurante.getPedidoEnCurso();
 					pEnCurso.agregarProducto(prA);
-					System.out.println("El producto ajustado se ha agregado exitosamente.");
+					System.out.println("\nEl producto ajustado se ha agregado exitosamente.");
 				}
 			}
 		}

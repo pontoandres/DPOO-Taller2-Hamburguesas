@@ -1,13 +1,21 @@
 
 ----- FACTURA -----
 Numero Pedido: 1
-Nombre: asdasdas
-Direccion: wqetret
+Nombre: adasdds
+Direccion: qewqweqweq
 ----- Items Pedido ----- 
-null
+combo corral......23835
+Calorias: 1146
+corralita.....15500
+Addiciones: queso mozzarella
+Eliminacion: 
+Calorias: 80
+
+----- Calorias Totales ----- 
+1226
 ----- Precio Neto ----- 
-0
+39350
 ----- Precio IVA ----- 
-0
+7476
 ----- Precio Total ----- 
-0
+46826
