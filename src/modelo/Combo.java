@@ -9,13 +9,15 @@ public class Combo implements Producto {
 	private int descuento;
 	private String nombreCombo;
 	private ArrayList<ProductoMenu> itemsCombo = new ArrayList<>();
+	private int calorias;
 	
 	/**
 	 * metodos
 	 */
-	public Combo(String nombre, int pDescuento) {
+	public Combo(String nombre, int pDescuento, int pCalorias) {
 		nombreCombo = nombre;
 		descuento = pDescuento;
+		calorias = pCalorias;
 		
 		
 	}
@@ -53,6 +55,11 @@ public class Combo implements Producto {
 		
 		
 		return null;
+	}
+	@Override
+	public int getCalorias() {
+		// TODO Auto-generated method stub
+		return calorias;
 	}
 
 }

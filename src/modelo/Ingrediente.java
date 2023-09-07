@@ -4,11 +4,13 @@ public class Ingrediente {
 	
 	private String nombre;
 	private int costoAdicional;
+	private int calorias;
 	
-	public Ingrediente (String pNombre, int pCostoAdicional) {
+	public Ingrediente (String pNombre, int pCostoAdicional, int pCalorias) {
 		
 		nombre = pNombre;
 		costoAdicional = pCostoAdicional;
+		calorias = pCalorias;
 		
 	}
 	public String getNombre() {
@@ -20,5 +22,8 @@ public class Ingrediente {
 		
 		return costoAdicional;
 		
+	}
+	public int getCalorias() {
+		return calorias;
 	}
 }

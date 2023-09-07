@@ -1,15 +1,13 @@
 
 ----- FACTURA -----
 Numero Pedido: 1
-papapapadsdsd
-kuhqhfkv
+Nombre: asdasdas
+Direccion: wqetret
 ----- Items Pedido ----- 
-nulltodoterreno......25000
-casera......23000
-
+null
 ----- Precio Neto ----- 
-48000
+0
 ----- Precio IVA ----- 
-9120
+0
 ----- Precio Total ----- 
-57120
+0

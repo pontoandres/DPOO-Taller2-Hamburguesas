@@ -4,13 +4,15 @@ public class ProductoMenu implements Producto{
 	
 	private String nombre;
 	private int precioBase;
+	private int calorias;
 	
 	/**
 	 * metodos
 	 */
-	public ProductoMenu(String pNombre, int pPrecioBase) {
+	public ProductoMenu(String pNombre, int pPrecioBase, int pCalorias) {
 		nombre = pNombre;
 		precioBase = pPrecioBase;
+		calorias = pCalorias;
 	}
 
 	@Override
@@ -28,7 +30,13 @@ public class ProductoMenu implements Producto{
 	@Override
 	public String generarTextoFactura() {
 		// TODO Auto-generated method stub
-		return null;
+		return nombre + "....." + precioBase + "\nCalorias: " + calorias;
+	}
+
+	@Override
+	public int getCalorias() {
+		// TODO Auto-generated method stub
+		return calorias;
 	}
 
 }

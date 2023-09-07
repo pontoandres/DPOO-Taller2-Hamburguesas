@@ -14,6 +14,7 @@ public class Restaurante {
 	private ArrayList<ProductoMenu> menuBase = new ArrayList<>();
 	private ArrayList<Combo> combos = new ArrayList<>();
 	private ArrayList<Pedido> pedidos = new ArrayList<>();
+	private ArrayList<ProductoMenu> bebidas = new ArrayList<>();
 	private Pedido pedidoEnCurso;
 	
 	public Restaurante() {
@@ -25,7 +26,8 @@ public class Restaurante {
 	}
 	public void cerrarYGuardarPedido() {
 		
-		File factura = new File("factura.txt");
+		String nombreArchivo = "factura" + pedidoEnCurso.getIdPedido() + ".txt";
+		File factura = new File(nombreArchivo);
 		pedidoEnCurso.guardarFactura(factura);
 		pedidoEnCurso = null;
 	}
@@ -54,6 +56,11 @@ public class Restaurante {
 		return pedidos;
 		
 	}
+public ArrayList<ProductoMenu> getBebidas(){
+		
+		return bebidas;
+		
+	}
 	public void cargarInformacionRestaurante(File archivoIngredientes, File archivoMenu, File archivoCombos) throws IOException {
 		
 		cargarIngredientes(archivoIngredientes);
@@ -67,17 +74,19 @@ public class Restaurante {
 			BufferedReader reader = new BufferedReader(new FileReader(archivoIngredientes));
 			String line;
 			String[] lista;
-			String nombreProducto;
-			int precioProducto;
+			String nombre;
+			int precio;
+			int calorias;
 			
 			
 			while((line = reader.readLine()) != null) {
 				
 				lista = line.split(";");
-				nombreProducto = lista[0];
-				precioProducto = Integer.parseInt(lista[1]);
+				nombre = lista[0];
+				precio = Integer.parseInt(lista[1]);
+				calorias = Integer.parseInt(lista[2]);
 				
-				Ingrediente nuevo = new Ingrediente(nombreProducto, precioProducto);
+				Ingrediente nuevo = new Ingrediente(nombre, precio, calorias);
 				ingredientes.add(nuevo);
 				
 			}
@@ -94,14 +103,16 @@ public class Restaurante {
 			String[] lista;
 			String nombre;
 			int precio;
+			int calorias;
 			
 			
 			while((line = reader.readLine()) != null) {
 				lista = line.split(";");
 				nombre = lista[0];
 				precio = Integer.parseInt(lista[1]);
+				calorias = Integer.parseInt(lista[2]);
 				
-				ProductoMenu nuevo = new ProductoMenu(nombre, precio);
+				ProductoMenu nuevo = new ProductoMenu(nombre, precio, calorias);
 				menuBase.add(nuevo);
 				
 			}
@@ -119,7 +130,8 @@ public class Restaurante {
 			String[] lista;
 			String nombre;
 			String cambio;
-			int descuento;			
+			int descuento;
+			int calorias;
 			
 			while((line = reader.readLine()) != null) {
 				lista = line.split(";");
@@ -127,12 +139,33 @@ public class Restaurante {
 				cambio = lista[1];
 				cambio = cambio.replace("%","");
 				descuento = Integer.parseInt(cambio);
+				calorias = Integer.parseInt(lista[5]);
 				
-				//String[] items = {lista[0], lista[1], lista[2]};
-				
-				Combo nuevo = new Combo(nombre, descuento);
+				Combo nuevo = new Combo(nombre, descuento, calorias);
 				combos.add(nuevo);
 				
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	private void cargarBebidas(File archivoBebidas) throws NumberFormatException, IOException {
+		
+		try {
+			BufferedReader reader = new BufferedReader( new FileReader(archivoBebidas));
+			String line;
+			String[] lista;
+			String nombre;
+			int precio;
+			int calorias;
+			
+			while((line = reader.readLine()) != null) {
+				lista = line.split(";");
+				nombre = lista[0];
+				precio = Integer.parseInt(lista[1]);
+				calorias = Integer.parseInt(lista[2]);
+				ProductoMenu nuevo = new ProductoMenu(nombre, precio, calorias);
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

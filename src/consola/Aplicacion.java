@@ -65,18 +65,20 @@ public class Aplicacion {
 	
 	public void ejecutarOpcion(int opcionSeleccionada) {
 		
+		
 		if(opcionSeleccionada == 1) {
 			
 			ArrayList<Ingrediente> ingredient = new ArrayList<>();
-			ArrayList<Combo> combo = new ArrayList<>();
+			ArrayList<Combo> combos = new ArrayList<>();
 			ArrayList<ProductoMenu> menu = new ArrayList<>();
+			ArrayList<ProductoMenu> bebidas = new ArrayList<>();
 			
 			System.out.println("\n------ Menu Combos ------\n");
 			System.out.println("Nombre Combo : Precio\n");
 			
 			int i = 1;
-			combo = restaurante.getCombos();
-			for (Combo comb : combo) {
+			combos = restaurante.getCombos();
+			for (Combo comb : combos) {
 				System.out.println(i + "." + comb.getNombre() + " : " + comb.getPrecio());
 				i++;
 			}
@@ -88,6 +90,15 @@ public class Aplicacion {
 			menu = restaurante.getMenuBase();
 			for (ProductoMenu base : menu) {
 				System.out.println(i + "." + base.getNombre() + " : " + base.getPrecio());
+				i++;
+			}
+			System.out.println("\n------ Menu Bebidas ------\n");
+			System.out.println("Nombre Producto : Precio\n");
+			
+			i = 1;
+			bebidas = restaurante.getBebidas();
+			for (ProductoMenu bebida : bebidas) {
+				System.out.println(i + "." + bebida.getNombre() + " : " + bebida.getPrecio());
 				i++;
 			}
 			
@@ -107,6 +118,7 @@ public class Aplicacion {
 			String direccionCliente = input("por favor ingrese la direcccion del cliente: ");
 			
 			restaurante.iniciarPedido(nombreCliente, direccionCliente);
+			System.out.println("\nEl pedido se ha creado. Por favor agregar items al pedido.");
 			
 		}
 		else if (opcionSeleccionada == 3) {
@@ -114,7 +126,8 @@ public class Aplicacion {
 			System.out.println("\n------ Tipos de Productos ------\n");
 			System.out.println("1. Combo\n"
 					+ "2. Producto del Menu Base\n"
-					+ "3. Producto Ajustado (Productos del menu base al que se les ha agregado/ eliminado ingredientes\n");
+					+ "3.Bebida"
+					+ "4. Producto Ajustado (Productos del menu base al que se les ha agregado/ eliminado ingredientes\n");
 			
 			int tipo = Integer.parseInt(input("Por favor digite el numero del tipo de Producto que desea agreagar a su pedido: "));
 			
@@ -122,166 +135,127 @@ public class Aplicacion {
 				int opcion = Integer.parseInt(input("Por favor digite el numero del Combo que desea agregar a su pedido: "));
 				
 				if (opcion == 1) {
-					Combo c = new Combo("combo corral", 10);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(c);
-					System.out.println("El combo se ha agregado exitosamente.");
+					
+					agregarCombo("combo corral");
+					
 				} 
 				else if(opcion == 2){
-					Combo c = new Combo("combo corral queso", 10);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(c);
-					System.out.println("El combo se ha agregado exitosamente.");
+					
+					agregarCombo("combo corral queso");
+					
 				}
 				else if(opcion == 3){
-					Combo c = new Combo("combo todoterreno", 7);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(c);
-					System.out.println("El combo se ha agregado exitosamente.");
+					
+					agregarCombo("combo todoterreno");
+					
 				}
 				else if(opcion == 4){
-					Combo c = new Combo("combo especial", 7);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(c);
-					System.out.println("El combo se ha agregado exitosamente.");
+					
+					agregarCombo("combo especial");
+					
 				}
 			} else if(tipo == 2) {
 				
 				int opcion = Integer.parseInt(input("Por favor digite el numero del Producto Base que desea agregar a su pedido: "));
 				
 				if (opcion == 1) {
-					ProductoMenu p = new ProductoMenu("corral", 14000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("corral");
+					
 				}
 				else if (opcion == 2) {
-					ProductoMenu p = new ProductoMenu("corral queso", 16000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("corral queso ");
 				}
 				else if (opcion == 3) {
-					ProductoMenu p = new ProductoMenu("corral pollo", 15000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("corral pollo");
 				}
 				else if (opcion == 4) {
-					ProductoMenu p = new ProductoMenu("corralita", 13000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("corralita");
 				}
 				else if (opcion == 5) {
-					ProductoMenu p = new ProductoMenu("todoterreno", 25000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("todoterreno");
 				}
 				else if (opcion == 6) {
-					ProductoMenu p = new ProductoMenu("1/2 libra", 25000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("1/2 libra");
 				}
 				else if (opcion == 7) {
-					ProductoMenu p = new ProductoMenu("especial", 24000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("especial");
 				}
 				else if (opcion == 8) {
-					ProductoMenu p = new ProductoMenu("casera", 23000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("casera");
+					
 				}
 				else if (opcion == 9) {
-					ProductoMenu p = new ProductoMenu("mexicana", 22000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("mexicana");
 				}
 				else if (opcion == 10) {
-					ProductoMenu p = new ProductoMenu("criolla", 22000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("criolla");
 				}
 				else if (opcion == 11) {
-					ProductoMenu p = new ProductoMenu("costeña", 20000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("costeña");
 				}
 				else if (opcion == 12) {
-					ProductoMenu p = new ProductoMenu("hawaiana", 20000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("hawaiana");
 				}
 				else if (opcion == 13) {
-					ProductoMenu p = new ProductoMenu("wrap de pollo", 15000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("wrap de pollo");
 				}
 				else if (opcion == 14) {
-					ProductoMenu p = new ProductoMenu("wrap de lomo", 22000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("wrap de lomo");
 				}
 				else if (opcion == 15) {
-					ProductoMenu p = new ProductoMenu("ensalada mexicana", 20900);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("ensalada mexicana");
 				}
 				else if (opcion == 16) {
-					ProductoMenu p = new ProductoMenu("papas medianas", 5500);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("papas medianas");
 				}
 				else if (opcion == 17) {
-					ProductoMenu p = new ProductoMenu("papas grandes", 6900);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("papas grandes");
 				}
 				else if (opcion == 18) {
-					ProductoMenu p = new ProductoMenu("papas en casco medianas", 5500);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("papas en casco medianas");
 				}
 				else if (opcion == 19) {
-					ProductoMenu p = new ProductoMenu("papas en casco grandes", 6900);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+					
+					agregarProductoMenu("papas en casco grandes");
 				}
-				else if (opcion == 20) {
-					ProductoMenu p = new ProductoMenu("agua cristal sin gas", 5000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+				
+				
+			} else if(tipo == 3) {
+				
+				int opcion = Integer.parseInt(input("Por favor digite el numero de la bebida que desea agregar: "));
+				
+				if (opcion == 1) {
+					
+					agregarBebida("agua cristal sin gas");
 				}
-				else if (opcion == 21) {
-					ProductoMenu p = new ProductoMenu("agua cristal con gas", 5000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+				else if(opcion == 2) {
+					
+					agregarBebida("agua cristal con gas");
 				}
-				else if (opcion == 22) {
-					ProductoMenu p = new ProductoMenu("gaseosa", 5000);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(p);
-					System.out.println("El producto se ha agregado exitosamente.");
+				else if (opcion == 3) {
+					
+					agregarBebida("gaseosa");
 				}
-			} else if(tipo == 3){
+				
+			}else if(tipo == 4){
 				
 				int prod = Integer.parseInt(input("Por favor digite el numero del Producto Base que desea modificar: "));
 				
@@ -296,218 +270,129 @@ public class Aplicacion {
 					int ing = Integer.parseInt(input("Por favor digite el numero del Ingrediente que desea agregar a su pedido: "));
 					
 					if (ing == 1) {
-						Ingrediente i = new Ingrediente("lechuga", 1000);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("lechuga", opcion, prA);
 					}
 					else if (ing == 2) {
-						Ingrediente i = new Ingrediente("tomate", 1000);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("tomate", opcion, prA);
 					}
 					else if (ing == 3) {
-						Ingrediente i = new Ingrediente("cebolla", 1000);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("cebolla", opcion, prA);
 					}
 					else if (ing == 4) {
-						Ingrediente i = new Ingrediente("queso mozzarella", 2500);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("queso mozzarella", opcion, prA);
 					}
 					else if (ing == 5) {
-						Ingrediente i = new Ingrediente("huevo", 2500);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("huevo", opcion, prA);
 					}
 					else if (ing == 6) {
-						Ingrediente i = new Ingrediente("queso americano", 2500);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("queso americano", opcion, prA);
 					}
 					else if (ing == 7) {
-						Ingrediente i = new Ingrediente("tocineta express", 2500);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("tocineta express", opcion, prA);
 					}
 					else if (ing == 8) {
-						Ingrediente i = new Ingrediente("papa callejera", 2000);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("papa callejera", opcion, prA);
 					}
 					else if (ing == 9) {
-						Ingrediente i = new Ingrediente("pepinillos", 2500);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("pepinillos", opcion, prA);
 					}
 					else if (ing == 10) {
-						Ingrediente i = new Ingrediente("cebolla grille", 2500);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("cebolla grille", opcion, prA);
 					}
 					else if (ing == 11) {
-						Ingrediente i = new Ingrediente("suero costeño", 3000);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("suero costeño", opcion, prA);
 					}
 					else if (ing == 12) {
-						Ingrediente i = new Ingrediente("frijol refrito", 4500);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("frijol refrito", opcion, prA);
 					}
 					else if (ing == 13) {
-						Ingrediente i = new Ingrediente("queso fundido", 4500);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("queso fundido", opcion, prA);
 					}
 					else if (ing == 14) {
-						Ingrediente i = new Ingrediente("tocineta picada", 6000);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("tocineta picada", opcion, prA);
 					}
 					else if (ing == 15) {
-						Ingrediente i = new Ingrediente("piña", 2500);
-						prA.agregarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("piña", opcion, prA);
 					}
 				}
 				else if (opcion ==2) {
+					
 					int ing = Integer.parseInt(input("Por favor digite el numero del Ingrediente que desea agregar a su pedido: "));
 					
 					if (ing == 1) {
-						Ingrediente i = new Ingrediente("lechuga", 1000);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("lechuga", opcion, prA);
 					}
 					else if (ing == 2) {
-						Ingrediente i = new Ingrediente("tomate", 1000);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("tomate", opcion, prA);
 					}
 					else if (ing == 3) {
-						Ingrediente i = new Ingrediente("cebolla", 1000);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("cebolla", opcion, prA);
 					}
 					else if (ing == 4) {
-						Ingrediente i = new Ingrediente("queso mozzarella", 2500);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("queso mozzarella", opcion, prA);
 					}
 					else if (ing == 5) {
-						Ingrediente i = new Ingrediente("huevo", 2500);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("huevo", opcion, prA);
 					}
 					else if (ing == 6) {
-						Ingrediente i = new Ingrediente("queso americano", 2500);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("queso americano", opcion, prA);
 					}
 					else if (ing == 7) {
-						Ingrediente i = new Ingrediente("tocineta express", 2500);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("tocineta express", opcion, prA);
 					}
 					else if (ing == 8) {
-						Ingrediente i = new Ingrediente("papa callejera", 2000);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("papa callejera", opcion, prA);
 					}
 					else if (ing == 9) {
-						Ingrediente i = new Ingrediente("pepinillos", 2500);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("pepinillos", opcion, prA);
 					}
 					else if (ing == 10) {
-						Ingrediente i = new Ingrediente("cebolla grille", 2500);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("cebolla grille", opcion, prA);
 					}
 					else if (ing == 11) {
-						Ingrediente i = new Ingrediente("suero costeño", 3000);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("suero costeño", opcion, prA);
 					}
 					else if (ing == 12) {
-						Ingrediente i = new Ingrediente("frijol refrito", 4500);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("frijol refrito", opcion, prA);
 					}
 					else if (ing == 13) {
-						Ingrediente i = new Ingrediente("queso fundido", 4500);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("queso fundido", opcion, prA);
 					}
 					else if (ing == 14) {
-						Ingrediente i = new Ingrediente("tocineta picada", 6000);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("tocineta picada", opcion, prA);
 					}
 					else if (ing == 15) {
-						Ingrediente i = new Ingrediente("piña", 2500);
-						prA.eliminarIngrediente(i);
-						Pedido pEnCurso = restaurante.getPedidoEnCurso();
-						pEnCurso.agregarProducto(prA);
-						System.out.println("El producto se ha modificado y agregado exitosamente.");
+						
+						agregarOEliminarProductoAjustado("piña", opcion, prA);
 					}
 				}
 			}
@@ -543,121 +428,275 @@ public class Aplicacion {
 			
 	}
 	public ProductoAjustado crearProdAjustado(int prod) {
+		
+		ArrayList<ProductoMenu> menu = new ArrayList<>();
+		menu = restaurante.getMenuBase();
 		ProductoAjustado retorno = null;
 		
 		if (prod == 1) {
-			ProductoMenu p = new ProductoMenu("corral", 14000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("corral")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 2) {
-			ProductoMenu p = new ProductoMenu("corral queso", 16000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("corral queso")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 3) {
-			ProductoMenu p = new ProductoMenu("corral pollo", 15000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("corral pollo")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 4) {
-			ProductoMenu p = new ProductoMenu("corralita", 13000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("corralita")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 5) {
-			ProductoMenu p = new ProductoMenu("todoterreno", 25000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("todoterreno")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 6) {
-			ProductoMenu p = new ProductoMenu("1/2 libra", 25000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("1/2 libra")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 7) {
-			ProductoMenu p = new ProductoMenu("especial", 24000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("especial")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 8) {
-			ProductoMenu p = new ProductoMenu("casera", 23000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("casera")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 9) {
-			ProductoMenu p = new ProductoMenu("mexicana", 22000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("mexicana")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 10) {
-			ProductoMenu p = new ProductoMenu("criolla", 22000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("criolla")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 11) {
-			ProductoMenu p = new ProductoMenu("costeña", 20000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("costeña")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 12) {
-			ProductoMenu p = new ProductoMenu("hawaiana", 20000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("hawaiana")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 13) {
-			ProductoMenu p = new ProductoMenu("wrap de pollo", 15000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("wrap de pollo")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 14) {
-			ProductoMenu p = new ProductoMenu("wrap de lomo", 22000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("wrap de lomo")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 15) {
-			ProductoMenu p = new ProductoMenu("ensalada mexicana", 20900);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("ensalada mexicana")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 16) {
-			ProductoMenu p = new ProductoMenu("papas medianas", 5500);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("papas medianas")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 17) {
-			ProductoMenu p = new ProductoMenu("papas grandes", 6900);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("papas grandes")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 18) {
-			ProductoMenu p = new ProductoMenu("papas en casco medianas", 5500);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
+			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("papas en casco medianas")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		else if (prod == 19) {
-			ProductoMenu p = new ProductoMenu("papas en casco grandes", 6900);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
-		}
-		else if (prod == 20) {
-			ProductoMenu p = new ProductoMenu("agua cristal sin gas", 5000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
-		}
-		else if (prod == 21) {
-			ProductoMenu p = new ProductoMenu("agua cristal con gas", 5000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
-		}
-		else if (prod == 22) {
-			ProductoMenu p = new ProductoMenu("gaseosa", 5000);
-			ProductoAjustado pA = new ProductoAjustado(p);
-			retorno = pA;
 			
+			for(ProductoMenu base : menu) {
+				if(base.getNombre().equals("papas en casco grandes")) {
+					
+					ProductoAjustado pA = new ProductoAjustado(base);
+					retorno = pA;	
+				}
+			}
 		}
 		
 		return retorno;
+	}
+	
+	public void agregarCombo(String nombre) {
+		
+		ArrayList<Combo> combos = new ArrayList<>();
+		combos = restaurante.getCombos();
+		
+		for(Combo comb : combos) {
+
+			if((comb.getNombre()).equals(nombre)) {
+				Pedido pEnCurso = restaurante.getPedidoEnCurso();
+				pEnCurso.agregarProducto(comb);
+				System.out.println("\nEl combo se ha agregado exitosamente.");
+			}
+		}
+	}
+	public void agregarProductoMenu(String nombre) {
+		
+		ArrayList<ProductoMenu> menu = new ArrayList<>();
+		menu = restaurante.getMenuBase();
+		
+		for(ProductoMenu base : menu) {
+			if(base.getNombre().equals(nombre)) {
+				Pedido pEnCurso = restaurante.getPedidoEnCurso();
+				pEnCurso.agregarProducto(base);
+				System.out.println("El combo se ha agregado exitosamente.");
+			}
+		}
+	}
+	public void agregarBebida(String nombre) {
+		
+		ArrayList<ProductoMenu> bebidas = new ArrayList<>();
+		bebidas = restaurante.getBebidas();
+		
+		for (ProductoMenu bebida : bebidas) {
+			if(bebida.getNombre().equals(nombre)) {
+				Pedido pEnCurso = restaurante.getPedidoEnCurso();
+				pEnCurso.agregarProducto(bebida);
+				System.out.println("La bebida se ha agregado exitosamente.");
+			}
+		}
+	}
+	public void agregarOEliminarProductoAjustado(String nombre, int opcion, ProductoAjustado prA) {
+		
+		ArrayList<Ingrediente> ingredientes = new ArrayList<>();
+		ingredientes = restaurante.getIngredientes();
+		
+		//Agregar ingrediente
+		if (opcion == 1) {
+			
+			for (Ingrediente ing : ingredientes) {
+				if(ing.getNombre().equals(nombre)) {
+					prA.agregarIngrediente(ing);
+					Pedido pEnCurso = restaurante.getPedidoEnCurso();
+					pEnCurso.agregarProducto(prA);
+					System.out.println("El producto ajustado se ha agregado exitosamente.");
+				}
+			}
+		}
+		
+		//Eliminar ingrediente
+		if (opcion == 2) {
+			
+			for (Ingrediente ing : ingredientes) {
+				if(ing.getNombre().equals(nombre)) {
+					prA.eliminarIngrediente(ing);
+					Pedido pEnCurso = restaurante.getPedidoEnCurso();
+					pEnCurso.agregarProducto(prA);
+					System.out.println("El producto ajustado se ha agregado exitosamente.");
+				}
+			}
+		}
 	}
 
 	/**

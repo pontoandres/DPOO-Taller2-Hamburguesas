@@ -9,6 +9,7 @@ public class ProductoAjustado implements Producto {
 	private ProductoMenu base;
 	private ArrayList<Ingrediente> agregados = new ArrayList<>();
 	private ArrayList<Ingrediente> eliminados = new ArrayList<>();
+	private int calorias;
 	
 	/**
 	 * metodos
@@ -40,6 +41,12 @@ public class ProductoAjustado implements Producto {
 	public String generarTextoFactura() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int getCalorias() {
+		// TODO Auto-generated method stub
+		return calorias;
 	}
 
 }

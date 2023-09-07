@@ -62,15 +62,14 @@ public class Pedido {
 	}
 	public String generarTextoFactura() {
 		
-		
-		String listaItems = null;
+		String stringItemsPrecio = null;
 		for (Producto item : itemsPedido) {
-			listaItems = item.getNombre() + "......" + item.getPrecio() + "\n";
+			stringItemsPrecio += item.getNombre() + "......" + item.getPrecio() + "\n";
 			
 		}
 		
-		String texto = nombreCliente + "\n" + direccionCliente 
-				+ "\n----- Items Pedido ----- \n" + listaItems 
+		String texto = "Nombre: " + nombreCliente + "\n" + "Direccion: " + direccionCliente 
+				+ "\n----- Items Pedido ----- \n" + stringItemsPrecio 
 				+ "\n----- Precio Neto ----- \n" + getPrecioNetoPedido()
 				+ "\n----- Precio IVA ----- \n" + getPrecioIVAPedido()
 				+ "\n----- Precio Total ----- \n" + getPrecioTotalPedido();
