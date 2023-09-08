@@ -261,140 +261,161 @@ public class Aplicacion {
 				
 				ProductoAjustado prA = crearProdAjustado(prod);
 				
-				System.out.println("\nLe gustaria agregar o eliminar un elemento a su pedido?\n"
-						+ "1.Agregar.\n"
-						+ "2.Eliminar.");
-				int opcion = Integer.parseInt(input("Por favor digite el numero: "));
 				
-				if (opcion == 1) {
-					int ing = Integer.parseInt(input("Por favor digite el numero del Ingrediente que desea agregar a su pedido: "));
-					
-					if (ing == 1) {
+				boolean sentinela = true;
+				
+				while(sentinela) {
+					try {
 						
-						agregarOEliminarProductoAjustado("lechuga", opcion, prA);
+						System.out.println("\nLe gustaria agregar o eliminar un elemento a su pedido?\n"
+								+ "1.Agregar.\n"
+								+ "2.Eliminar.\n"
+								+ "3.Salir");
+						int opcion = Integer.parseInt(input("Por favor digite el numero: "));
+						
+						if (opcion == 1) {
+							int ing = Integer.parseInt(input("Por favor digite el numero del Ingrediente que desea agregar a su pedido: "));
+							
+							if (ing == 1) {
+								
+								agregarOEliminarProductoAjustado("lechuga", opcion, prA);
+							}
+							else if (ing == 2) {
+								
+								agregarOEliminarProductoAjustado("tomate", opcion, prA);
+							}
+							else if (ing == 3) {
+								
+								agregarOEliminarProductoAjustado("cebolla", opcion, prA);
+							}
+							else if (ing == 4) {
+								
+								agregarOEliminarProductoAjustado("queso mozzarella", opcion, prA);
+							}
+							else if (ing == 5) {
+								
+								agregarOEliminarProductoAjustado("huevo", opcion, prA);
+							}
+							else if (ing == 6) {
+								
+								agregarOEliminarProductoAjustado("queso americano", opcion, prA);
+							}
+							else if (ing == 7) {
+								
+								agregarOEliminarProductoAjustado("tocineta express", opcion, prA);
+							}
+							else if (ing == 8) {
+								
+								agregarOEliminarProductoAjustado("papa callejera", opcion, prA);
+							}
+							else if (ing == 9) {
+								
+								agregarOEliminarProductoAjustado("pepinillos", opcion, prA);
+							}
+							else if (ing == 10) {
+								
+								agregarOEliminarProductoAjustado("cebolla grille", opcion, prA);
+							}
+							else if (ing == 11) {
+								
+								agregarOEliminarProductoAjustado("suero costeño", opcion, prA);
+							}
+							else if (ing == 12) {
+								
+								agregarOEliminarProductoAjustado("frijol refrito", opcion, prA);
+							}
+							else if (ing == 13) {
+								
+								agregarOEliminarProductoAjustado("queso fundido", opcion, prA);
+							}
+							else if (ing == 14) {
+								
+								agregarOEliminarProductoAjustado("tocineta picada", opcion, prA);
+							}
+							else if (ing == 15) {
+								
+								agregarOEliminarProductoAjustado("piña", opcion, prA);
+							}
+						}
+						else if (opcion ==2) {
+							
+							int ing = Integer.parseInt(input("Por favor digite el numero del Ingrediente que desea eliminar de su pedido: "));
+							
+							if (ing == 1) {
+								
+								agregarOEliminarProductoAjustado("lechuga", opcion, prA);
+							}
+							else if (ing == 2) {
+								
+								agregarOEliminarProductoAjustado("tomate", opcion, prA);
+							}
+							else if (ing == 3) {
+								
+								agregarOEliminarProductoAjustado("cebolla", opcion, prA);
+							}
+							else if (ing == 4) {
+								
+								agregarOEliminarProductoAjustado("queso mozzarella", opcion, prA);
+							}
+							else if (ing == 5) {
+								
+								agregarOEliminarProductoAjustado("huevo", opcion, prA);
+							}
+							else if (ing == 6) {
+								
+								agregarOEliminarProductoAjustado("queso americano", opcion, prA);
+							}
+							else if (ing == 7) {
+								
+								agregarOEliminarProductoAjustado("tocineta express", opcion, prA);
+							}
+							else if (ing == 8) {
+								
+								agregarOEliminarProductoAjustado("papa callejera", opcion, prA);
+							}
+							else if (ing == 9) {
+								
+								agregarOEliminarProductoAjustado("pepinillos", opcion, prA);
+							}
+							else if (ing == 10) {
+								
+								agregarOEliminarProductoAjustado("cebolla grille", opcion, prA);
+							}
+							else if (ing == 11) {
+								
+								agregarOEliminarProductoAjustado("suero costeño", opcion, prA);
+							}
+							else if (ing == 12) {
+								
+								agregarOEliminarProductoAjustado("frijol refrito", opcion, prA);
+							}
+							else if (ing == 13) {
+								
+								agregarOEliminarProductoAjustado("queso fundido", opcion, prA);
+							}
+							else if (ing == 14) {
+								
+								agregarOEliminarProductoAjustado("tocineta picada", opcion, prA);
+							}
+							else if (ing == 15) {
+								
+								agregarOEliminarProductoAjustado("piña", opcion, prA);
+							}
+						}
+						else if (opcion == 3) {
+							sentinela = false;
+						}
+						
 					}
-					else if (ing == 2) {
-						
-						agregarOEliminarProductoAjustado("tomate", opcion, prA);
-					}
-					else if (ing == 3) {
-						
-						agregarOEliminarProductoAjustado("cebolla", opcion, prA);
-					}
-					else if (ing == 4) {
-						
-						agregarOEliminarProductoAjustado("queso mozzarella", opcion, prA);
-					}
-					else if (ing == 5) {
-						
-						agregarOEliminarProductoAjustado("huevo", opcion, prA);
-					}
-					else if (ing == 6) {
-						
-						agregarOEliminarProductoAjustado("queso americano", opcion, prA);
-					}
-					else if (ing == 7) {
-						
-						agregarOEliminarProductoAjustado("tocineta express", opcion, prA);
-					}
-					else if (ing == 8) {
-						
-						agregarOEliminarProductoAjustado("papa callejera", opcion, prA);
-					}
-					else if (ing == 9) {
-						
-						agregarOEliminarProductoAjustado("pepinillos", opcion, prA);
-					}
-					else if (ing == 10) {
-						
-						agregarOEliminarProductoAjustado("cebolla grille", opcion, prA);
-					}
-					else if (ing == 11) {
-						
-						agregarOEliminarProductoAjustado("suero costeño", opcion, prA);
-					}
-					else if (ing == 12) {
-						
-						agregarOEliminarProductoAjustado("frijol refrito", opcion, prA);
-					}
-					else if (ing == 13) {
-						
-						agregarOEliminarProductoAjustado("queso fundido", opcion, prA);
-					}
-					else if (ing == 14) {
-						
-						agregarOEliminarProductoAjustado("tocineta picada", opcion, prA);
-					}
-					else if (ing == 15) {
-						
-						agregarOEliminarProductoAjustado("piña", opcion, prA);
+					catch(NumberFormatException e){
+						System.out.println("Debe seleccionar uno de los números de las opciones.");
 					}
 				}
-				else if (opcion ==2) {
-					
-					int ing = Integer.parseInt(input("Por favor digite el numero del Ingrediente que desea agregar a su pedido: "));
-					
-					if (ing == 1) {
-						
-						agregarOEliminarProductoAjustado("lechuga", opcion, prA);
-					}
-					else if (ing == 2) {
-						
-						agregarOEliminarProductoAjustado("tomate", opcion, prA);
-					}
-					else if (ing == 3) {
-						
-						agregarOEliminarProductoAjustado("cebolla", opcion, prA);
-					}
-					else if (ing == 4) {
-						
-						agregarOEliminarProductoAjustado("queso mozzarella", opcion, prA);
-					}
-					else if (ing == 5) {
-						
-						agregarOEliminarProductoAjustado("huevo", opcion, prA);
-					}
-					else if (ing == 6) {
-						
-						agregarOEliminarProductoAjustado("queso americano", opcion, prA);
-					}
-					else if (ing == 7) {
-						
-						agregarOEliminarProductoAjustado("tocineta express", opcion, prA);
-					}
-					else if (ing == 8) {
-						
-						agregarOEliminarProductoAjustado("papa callejera", opcion, prA);
-					}
-					else if (ing == 9) {
-						
-						agregarOEliminarProductoAjustado("pepinillos", opcion, prA);
-					}
-					else if (ing == 10) {
-						
-						agregarOEliminarProductoAjustado("cebolla grille", opcion, prA);
-					}
-					else if (ing == 11) {
-						
-						agregarOEliminarProductoAjustado("suero costeño", opcion, prA);
-					}
-					else if (ing == 12) {
-						
-						agregarOEliminarProductoAjustado("frijol refrito", opcion, prA);
-					}
-					else if (ing == 13) {
-						
-						agregarOEliminarProductoAjustado("queso fundido", opcion, prA);
-					}
-					else if (ing == 14) {
-						
-						agregarOEliminarProductoAjustado("tocineta picada", opcion, prA);
-					}
-					else if (ing == 15) {
-						
-						agregarOEliminarProductoAjustado("piña", opcion, prA);
-					}
-				}
+				
+				Pedido pEnCurso = restaurante.getPedidoEnCurso();
+				pEnCurso.agregarProducto(prA);
+				System.out.println("\nEl producto ajustado se ha agregado exitosamente.");
+				 
 			}
 		}
 		else if (opcionSeleccionada ==4) {
@@ -678,9 +699,7 @@ public class Aplicacion {
 			for (Ingrediente ing : ingredientes) {
 				if(ing.getNombre().equals(nombre)) {
 					prA.agregarIngrediente(ing);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(prA);
-					System.out.println("\nEl producto ajustado se ha agregado exitosamente.");
+					
 				}
 			}
 		}
@@ -691,9 +710,6 @@ public class Aplicacion {
 			for (Ingrediente ing : ingredientes) {
 				if(ing.getNombre().equals(nombre)) {
 					prA.eliminarIngrediente(ing);
-					Pedido pEnCurso = restaurante.getPedidoEnCurso();
-					pEnCurso.agregarProducto(prA);
-					System.out.println("El producto ajustado se ha agregado exitosamente.");
 				}
 			}
 		}

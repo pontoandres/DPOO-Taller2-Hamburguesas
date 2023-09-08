@@ -1,21 +1,19 @@
 
 ----- FACTURA -----
 Numero Pedido: 1
-Nombre: adasdds
-Direccion: qewqweqweq
+Nombre: sfsdf
+Direccion: ggggg
 ----- Items Pedido ----- 
-combo corral......23835
-Calorias: 1146
-corralita.....15500
-Addiciones: queso mozzarella
-Eliminacion: 
-Calorias: 80
+corralita.....14000
+Addiciones: lechuga
+Eliminacion: queso americano
+Calorias: 250
 
 ----- Calorias Totales ----- 
-1226
+250
 ----- Precio Neto ----- 
-39350
+14000
 ----- Precio IVA ----- 
-7476
+2660
 ----- Precio Total ----- 
-46826
+16660
